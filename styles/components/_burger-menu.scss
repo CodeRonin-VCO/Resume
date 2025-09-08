@@ -1,0 +1,52 @@
+@use "../abstracts/" as *;
+
+.menu-burger {
+    width: 5rem;
+    height: 5rem;
+    border: .4rem solid #0d0d0c;
+    border-radius: .8rem;
+    position: relative;
+    z-index: 99999;
+    cursor: pointer;
+
+    .line {
+        width: 80%;
+        height: 0.4rem;
+        background-color: #8c0605;
+        border-radius: 3rem;
+        position: absolute;
+        left: 50%;
+        translate: -50% -50%;
+        cursor: pointer;
+        transition: .4s all ease-in-out;
+        z-index: 99999;
+
+        &.line-top {
+            top: 30%;
+
+            &.active {
+                transform: translateY(.8rem) rotate(45deg);
+                transition: .4s all ease-in-out;
+            }
+        }
+
+        &.line-middle {
+            top: 50%;
+            opacity: 1;
+
+            &.active {
+                opacity: 0;
+                transition: .2s all ease-in-out;
+            }
+        }
+
+        &.line-bottom {
+            top: 70%;
+
+            &.active {
+                transform: translateY(-.8rem) rotate(-45deg);
+                transition: .4s all ease-in-out;
+            }
+        }
+    }
+}

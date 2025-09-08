@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+body {
+    font-family: "Markazi text";
+    color: #0d0d0c;
+    background-color: #a79885;
+    position: relative;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+    font-family: "Amiri";
+}
+
