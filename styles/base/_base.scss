@@ -11,3 +11,13 @@ body {
     font-family: "Amiri";
 }
 
+.to-reveal {
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: .5s all ease-out;
+}
+
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}

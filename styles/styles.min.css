@@ -94,6 +94,17 @@ body {
   font-family: "Amiri";
 }
 
+.to-reveal {
+  opacity: 0;
+  transform: translateY(5rem);
+  transition: 0.5s all ease-out;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .menu-burger {
   width: 5rem;
   height: 5rem;
@@ -276,10 +287,14 @@ main #intro h1 {
   text-align: center;
 }
 main #intro article {
-  width: 80%;
   min-height: 60vh;
   margin: auto;
   text-align: justify;
+}
+@media screen and (min-width: 960px) {
+  main #intro article {
+    width: 80%;
+  }
 }
 main #intro article h2 {
   text-align: right;
@@ -304,12 +319,20 @@ main #competences .container-card .card {
   height: 100%;
   margin: auto;
   padding: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #544c43;
   border: 1px solid #5c4a3f;
   border-radius: 0.8rem;
-  transition: 0.3s all ease-in-out;
+  transition: opacity 0.6s ease-out, 0.3s transform ease-out;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
 }
 main #competences .container-card .card:hover {
   transform: perspective(500px) rotateY(45deg) scaleY(0.7);
+}
+main #competences .container-card .card.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 main #competences .container-card .card > div {
   display: flex;
@@ -348,6 +371,9 @@ main #formations > div {
   main #formations > div {
     width: 50%;
   }
+  main #formations > div:first-child {
+    padding: 0 8rem;
+  }
 }
 main #formations #experiences {
   padding: 2rem;
@@ -362,6 +388,7 @@ main #formations #experiences h3 {
   width: 100%;
 }
 main #centres {
+  width: 100%;
   padding: 3rem;
   display: flex;
   flex-direction: column;
