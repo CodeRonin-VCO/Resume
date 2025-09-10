@@ -10,26 +10,40 @@ menuBurger.addEventListener("click", function () {
     panelMobile.classList.toggle("active");
 })
 
+// ==== Animated bg ====
+VANTA.FOG({
+    el: "#hero",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    highlightColor: 0xf9c700,
+    midtoneColor: 0xe54128,
+    lowlightColor: 0x2e00f9,
+    zoom: 0.70
+})
+
 // ==== Reveal effect ====
 document.querySelectorAll(".container-card").forEach(container => {
-  const cards = container.querySelectorAll(".card");
+    const cards = container.querySelectorAll(".card");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const card = entry.target;
-        const index = [...cards].indexOf(card); // index local
-        card.style.transitionDelay = `${index * 150}ms`;
-        card.classList.add("revealed");
-        observer.unobserve(card);
-      }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const index = [...cards].indexOf(card); // index local
+                card.style.transitionDelay = `${index * 150}ms`;
+                card.classList.add("revealed");
+                observer.unobserve(card);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: "0px 0px -50px 0px", // déclenche plus tôt
+        threshold: 0
     });
-  }, {
-    root: null,
-    rootMargin: "0px 0px -50px 0px", // déclenche plus tôt
-    threshold: 0
-  });
 
-  cards.forEach(card => observer.observe(card));
+    cards.forEach(card => observer.observe(card));
 });
 
