@@ -10,20 +10,6 @@ menuBurger.addEventListener("click", function () {
     panelMobile.classList.toggle("active");
 })
 
-// ==== Animated bg ====
-VANTA.FOG({
-    el: "#hero",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    highlightColor: 0xf9c700,
-    midtoneColor: 0xe54128,
-    lowlightColor: 0x2e00f9,
-    zoom: 0.70
-})
-
 // ==== Reveal effect ====
 document.querySelectorAll(".container-card").forEach(container => {
     const cards = container.querySelectorAll(".card");
